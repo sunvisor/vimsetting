@@ -1,0 +1,51 @@
+snippet app
+	Ext.application({
+		name: '${1:AppName},
+		
+		controllers: [
+			'Users'
+		],
+		
+		launch: function() {
+			// Initialize
+		}
+	});
+
+snippet model
+	Ext.define('${1:AppName}.model.${2:ModelName}', {
+		extend: 'Ext.data.Model'},
+		fields: [
+		]
+	});
+
+snippet store
+	Ext.define('${1:AppName}.store.${2:StoreName}', {
+		extend: 'Ext.data.Store'},
+		model: ${3:Modelname}
+	});
+
+snippet viewport
+	Ext.define('${1:AppName}.view.Viewport', {
+		extend: 'Ext.container.Viewport',
+		layout: 'border',
+		items: [
+			xtype: 'panel',
+			title: '${2:AppTitle}',
+			layout: 'fit',
+			region: 'center',
+			tbar: {
+				xtype: 'toolbar',
+				items: [
+					{
+						xtype: 'button',
+						text: '新規追加'
+					},
+					{
+						xtype: 'button',
+						text: '訂正'
+					}
+				]
+			}
+		]
+	});
+
